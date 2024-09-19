@@ -45,7 +45,7 @@ const PulsatingButton: React.FC = () => {
           setIsIncreasing(true);
         }
       }
-    }, 100);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [width, height, isIncreasing]);
@@ -53,7 +53,9 @@ const PulsatingButton: React.FC = () => {
   return (
     <button
       onClick={() => setIsIncreasing(!isIncreasing)}
-      className={"bg-blue-500 text-white font-bold py-2 px-4 rounded"}
+      className={
+        "bg-blue-800 text-gray-200 text-xs font-bold py-2 px-4 rounded-lg hover:opacity-80 transition-all"
+      }
       style={{ width, height }}
     >
       Click me {isIncreasing ? "to shrink" : "to grow"}
@@ -66,7 +68,7 @@ export default function TestOne() {
     <>
       <h1 className={"text-xl font-bold"}>Test 1</h1>
       <div
-        className={"flex flex-col items-center justify-center w-full h-screen"}
+        className={"flex flex-col items-center justify-center w-full h-[80vh]"}
       >
         <PulsatingButton />
       </div>
